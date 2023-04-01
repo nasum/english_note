@@ -19,6 +19,6 @@ test:
   password: postgres
 production:
   <<: *default
+  host: <%= ENV["DATABASE_URL"] %>
   database: english_note_production
   username: english_note
-  password: <%= ENV["ENGLISH_NOTE_DATABASE_PASSWORD"] %>
