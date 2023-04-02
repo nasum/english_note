@@ -11,6 +11,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "dockerfile-rails", ">= 1.2", :group => :development
+gem 'sorcery'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
