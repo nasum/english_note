@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home' => "home#index"
   resources :users
+  resources :words
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"
