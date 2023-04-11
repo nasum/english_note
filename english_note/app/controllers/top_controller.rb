@@ -3,8 +3,6 @@ class TopController < ApplicationController
   layout 'top'
 
   def index 
-    if current_user
-      redirect_to home_path
-    end
+    redirect_to home_path if current_user
   end
 end
