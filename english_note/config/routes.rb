@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'home' => "home#index"
   resources :users
   resources :words
+  resources :admin_user, only: %i[new create]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"

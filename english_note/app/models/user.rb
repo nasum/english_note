@@ -7,5 +7,5 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
 
-  has_many :words
+  has_many :words, dependent: :destroy
 end
