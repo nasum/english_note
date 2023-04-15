@@ -15,7 +15,6 @@ class Word < ApplicationRecord
 
   belongs_to :user
   belongs_to :study_event
-  accepts_nested_attributes_for :study_event
 
   enum :word_class, WORD_CLASS
 
