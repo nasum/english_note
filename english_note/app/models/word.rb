@@ -10,5 +10,12 @@
 #  user_id    :bigint           not null
 #
 class Word < ApplicationRecord
+  WORD_CLASS = {noun: 0, verb: 1, adjective: 2, adverb: 3, preposition: 4, conjunction: 5, interjection: 6}
+
   belongs_to :user
+
+  enum :word_class, WORD_CLASS
+
+  validates :name, presence: true
+  validates :word_class, presence: true, inclusion: { in: WORD_CLASS.keys.map(&:to_s) }
 end
