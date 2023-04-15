@@ -4,5 +4,6 @@ class TopController < ApplicationController
 
   def index 
     redirect_to home_path if current_user
+    redirect_to new_admin_user_path if User.all().count == 0
   end
 end

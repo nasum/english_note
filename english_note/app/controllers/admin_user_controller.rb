@@ -14,7 +14,7 @@ class AdminUserController < ApplicationController
     @user = User.new(user_params)
     @user.admin = true
     if @user.save
-      redirect_to users_path
+      redirect_to home_path
     else
       render :new
     end
