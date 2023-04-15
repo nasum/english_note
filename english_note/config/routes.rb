@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'home' => "home#index"
+  
+  resources :study_events, only: %i[index]
   resources :users
   resources :words
   resources :admin_user, only: %i[new create]

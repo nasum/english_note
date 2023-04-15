@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_11_151025) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_15_153510) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "study_events", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "study_event_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_study_events_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -30,8 +38,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_11_151025) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.bigint "study_event_id", null: false
+    t.index ["study_event_id"], name: "index_words_on_study_event_id"
     t.index ["user_id"], name: "index_words_on_user_id"
   end
 
+  add_foreign_key "study_events", "users"
+  add_foreign_key "words", "study_events"
   add_foreign_key "words", "users"
 end
