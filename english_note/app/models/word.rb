@@ -11,7 +11,7 @@
 #  study_event_id :bigint           not null
 #
 class Word < ApplicationRecord
-  WORD_CLASS = {noun: 0, verb: 1, adjective: 2, adverb: 3, preposition: 4, conjunction: 5, interjection: 6}
+  WORD_CLASS = { noun: 0, verb: 1, adjective: 2, adverb: 3, preposition: 4, conjunction: 5, interjection: 6 }
 
   belongs_to :user
   belongs_to :study_event

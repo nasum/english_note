@@ -9,7 +9,7 @@
 #  updated_at       :datetime         not null
 #
 class StudyEvent < ApplicationRecord
-  STUDY_EVNENT_TYPE = {word: 0}
+  STUDY_EVNENT_TYPE = { word: 0 }
   belongs_to :user
   has_one :word
 

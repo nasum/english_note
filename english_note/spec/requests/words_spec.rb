@@ -1,44 +1,43 @@
 require 'rails_helper'
 
-RSpec.describe "Words", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
+RSpec.describe 'Words', type: :request do
+  describe 'GET /index' do
+    it 'returns http success' do
       skip
-      get "/words/index"
+      get '/words/index'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /new" do
-    it "returns http success" do
+  describe 'GET /new' do
+    it 'returns http success' do
       skip
-      get "/words/new"
+      get '/words/new'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
-    it "returns http success" do
+  describe 'GET /create' do
+    it 'returns http success' do
       skip
-      get "/words/create"
+      get '/words/create'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /edit" do
-    it "returns http success" do
+  describe 'GET /edit' do
+    it 'returns http success' do
       skip
-      get "/words/edit"
+      get '/words/edit'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /destroy" do
-    it "returns http success" do
+  describe 'GET /destroy' do
+    it 'returns http success' do
       skip
-      get "/words/destroy"
+      get '/words/destroy'
       expect(response).to have_http_status(:success)
     end
   end
-
 end

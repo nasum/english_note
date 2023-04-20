@@ -25,7 +25,7 @@ class WordsController < ApplicationController
     end
   end
 
-  def show 
+  def show
     @word = Word.find(params[:id])
   end
 
@@ -40,13 +40,14 @@ class WordsController < ApplicationController
   end
 
   private
-    def set_word
-      @user = Word.find(params[:id])
-    end
 
-    def word_params
-      params.require(:word).permit(:name, :word_class, :study_event).tap do |params|
-        params[:word_class] = params[:word_class].to_i
-      end
+  def set_word
+    @user = Word.find(params[:id])
+  end
+
+  def word_params
+    params.require(:word).permit(:name, :word_class, :study_event).tap do |params|
+      params[:word_class] = params[:word_class].to_i
     end
+  end
 end
