@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => 'user_sessions#create'
   get 'logout' => 'user_sessions#destroy', :as => :logout
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  namespace :admin do
+    root to: 'home#index'
+  end
 
   # Defines the root path route ("/")
   root 'top#index'

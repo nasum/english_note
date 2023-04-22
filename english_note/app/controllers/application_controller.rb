@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def redirect_to_root_if_exist_user
     redirect_to root_path if User.count > 0
   end
+
+  def is_admin?
+    current_user.admin?
+  end
 end
