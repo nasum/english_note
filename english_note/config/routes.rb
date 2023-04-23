@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'home#index'
+    resources :application_settings, only: %i[create]
   end
 
   # Defines the root path route ("/")
