@@ -2,4 +2,14 @@
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Homes</h1>
   </div>
+  <section>
+    <h2>Events</h2>
+    <% @events.each do |event|%>
+      <ul>
+        <li>
+          <span><%= event.created_at %></span><span><%= event.study_event_type %></span>
+        </li>
+      </ul>      
+    <% end %>
+  </section>
 </div>
