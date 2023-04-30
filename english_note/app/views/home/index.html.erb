@@ -3,6 +3,9 @@
     <h1 class="font-bold text-4xl">Homes</h1>
   </div>
   <section>
+    <%= render "words/form", word: @word %>
+  </section>
+  <section>
     <h2>Events</h2>
     <% @events.each do |event|%>
       <ul>
