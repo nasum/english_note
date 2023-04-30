@@ -1,0 +1,30 @@
+<h1>ApplicationSetting</h1>
+<div>
+  <%= link_to "back", admin_root_path%>
+</div>
+<div>
+  <%= form_with(model: @application_setting, class: "contents", method: :put) do |form| %>
+    <% if @application_setting.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= pluralize(@application_setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+        <ul>
+          <% @application_setting.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <div class="my-5">
+      <%= form.label :allow_create_new_user %>
+      <%= form.check_box :allow_create_new_user %>
+    </div>
+
+    <div class="inline">
+      <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+  <% end %>
+</div>
