@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :check_allow_create_new_user, only: %i[new create]
 
   # GET /users
   def index
@@ -54,5 +55,9 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def check_allow_create_new_user
+    redirect_to root_path unless @application_setting.allow_create_new_user
   end
 end

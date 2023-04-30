@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :require_login
+  before_action :application_setting
 
   private
 
@@ -13,5 +14,9 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     current_user.admin?
+  end
+
+  def application_setting
+    @application_setting = Admin::ApplicationSetting.first
   end
 end
