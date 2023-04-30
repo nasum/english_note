@@ -6,6 +6,17 @@
     <%= render "words/form", word: @word %>
   </section>
   <section>
+    <h2>Words</h2>
+    <% @words.each do |word|%>
+      <ul>
+        <li>
+          <span><%= word.created_at %></span><span><%= word.name %></span>
+        </li>
+      </ul>      
+    <% end %>
+    <%= link_to "words", words_path%>
+  </section>
+  <section>
     <h2>Events</h2>
     <% @events.each do |event|%>
       <ul>
@@ -14,5 +25,6 @@
         </li>
       </ul>      
     <% end %>
+    <%= link_to "events", study_events_path%>
   </section>
 </div>
