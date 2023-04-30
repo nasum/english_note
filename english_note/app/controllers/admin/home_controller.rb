@@ -1,8 +1,6 @@
-class Admin::HomeController < ApplicationController
+class Admin::HomeController < Admin::BaseController
   layout 'admin'
 
-  before_action :require_login
-  before_action :is_admin?
-
-  def index; end
+  def index
+  end
 end
