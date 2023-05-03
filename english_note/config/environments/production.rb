@@ -70,8 +70,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-
-  ## add autoload path
-  config.autoload_paths += %W[#{config.root}/models/forms]
 end

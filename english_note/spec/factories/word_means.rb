@@ -18,7 +18,7 @@
 #
 FactoryBot.define do
   factory :word_mean do
-    words { nil }
+    word { nil }
     description { "MyText" }
   end
 end

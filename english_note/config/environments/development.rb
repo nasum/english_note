@@ -65,7 +65,4 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-
-  ## add autoload path
-  config.autoload_paths += %W[#{config.root}/models/forms]
 end
