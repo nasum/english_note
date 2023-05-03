@@ -1,30 +1,35 @@
-<div class="w-full">
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Homes</h1>
+<div class="w-full md:flex">
+  <div class="md:w-3/4 mr-10">
+    <section class="mb-10">
+      <%= render "words/form", word: @word %>
+    </section>
+    <section class="bg-white rounded-lg p-5">
+      <h2 class="text-xl border-l-4 border-indigo-500 box-content pl-3">Words</h2>
+      <% @words.each do |word|%>
+        <ul class="my-2">
+          <li class="border-b-2">
+            <span class="mr-5"><%= word.created_at %></span><span><%= word.name %></span>
+          </li>
+        </ul>      
+      <% end %>
+      <div class="text-right">
+        <%= link_to "words", words_path, class: "underline underline-offset-4"%>
+      </div>
+    </section>
   </div>
-  <section>
-    <%= render "words/form", word: @word %>
-  </section>
-  <section>
-    <h2>Words</h2>
-    <% @words.each do |word|%>
-      <ul>
-        <li>
-          <span><%= word.created_at %></span><span><%= word.name %></span>
-        </li>
-      </ul>      
-    <% end %>
-    <%= link_to "words", words_path%>
-  </section>
-  <section>
-    <h2>Events</h2>
-    <% @events.each do |event|%>
-      <ul>
-        <li>
-          <span><%= event.created_at %></span><span><%= event.study_event_type %></span>
-        </li>
-      </ul>      
-    <% end %>
-    <%= link_to "events", study_events_path%>
-  </section>
+  <div class="md:w-1/4">
+    <section class="bg-white rounded-lg p-5">
+      <h2 class="text-xl border-l-4 border-indigo-500 box-content pl-3">Events</h2>
+      <% @events.each do |event|%>
+        <ul class="my-2">
+          <li class="border-b-2">
+            <span class="mr-5"><%= event.created_at %></span><span><%= event.study_event_type %></span>
+          </li>
+        </ul>      
+      <% end %>
+      <div class="text-right">
+        <%= link_to "events", study_events_path, class: "underline underline-offset-4"%>
+      </div>
+    </section>
+  </div>
 </div>

@@ -1,4 +1,5 @@
-<%= form_with(model: word, url: words_path, class: "contents") do |form| %>
+<%= form_with(model: word, url: words_path, class: "bg-white p-5 rounded-lg") do |form| %>
+  <h2 class="text-xl border-l-4 border-indigo-500 box-content pl-3">New Word</h2>
   <% if word.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(word.errors.count, "error") %> prohibited this word from being saved:</h2>
@@ -10,25 +11,31 @@
       </ul>
     </div>
   <% end %>
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="">
+    <div class="flex items-center my-3">
+      <div class="w-1/6">
+        <%= form.label :name %>
+      </div>
+      <%= form.text_field :name, class: "rounded-md border border-gray-200 outline-none mr-4", placeholder: "enter new word" %>
+    </div>
+    <div class="flex items-center my-3">
+      <div class="w-1/6">
+        <%= form.label :word_class %>
+      </div>
+      <%= form.select :word_class, options_for_select(Word::WORD_CLASS), name: "word_class", class: "rounded-md border border-gray-200 outline-none"  %>
+    </div>
+    <div class="flex items-center my-3">
+      <div class="w-1/6">
+        <%= form.label :word_means %>
+      </div>
+      <div>
+        <% word.word_means.each do |mean|%>
+          <%= form.text_field mean, name: "forms_word[word_means[0]]", class: "rounded-md border border-gray-200 outline-none", value: mean, placeholder: "enter new mean" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="my-5">
-    <%= form.label :word_class %>
-    <%= form.select :word_class, options_for_select(Word::WORD_CLASS), name: "word_class", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
-  </div>
-
-
-  <div class="my-5">
-    <%= form.label :word_means %>
-    <% word.word_means.each do |mean|%>
-      <%= form.text_field mean, name: "forms_word[word_means[0]]", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", value: mean %>
-    <% end %>
-  </div>
-
-  <div class="inline">
+  <div class="text-right">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
