@@ -15,6 +15,18 @@ function stop() {
     docker-compose down
 }
 
+function test() {
+    cd ./english_note/
+    bundle exec rspec
+}
+
+function test-ci() {
+    docker-compose up -d
+    cd ./english_note/
+    bin/setup
+    bundle exec rspec
+}
+
 function restart() {
     stop
     start
@@ -30,6 +42,12 @@ case "$1" in
         ;;
     stop)
         stop
+        ;;
+    test)
+        test
+        ;;
+    test-ci)
+        test-ci
         ;;
     restart)
         restart
