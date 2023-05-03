@@ -26,11 +26,11 @@ class WordsController < ApplicationController
   end
 
   def show
-    @word = Word.find(params[:id])
+    @word = Forms::Word.find(params[:id])
   end
 
   def edit
-    @word = Word.find(params[:id])
+    @word = Forms::Word.find(params[:id])
   end
 
   def destroy

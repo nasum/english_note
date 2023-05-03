@@ -30,4 +30,14 @@ class Forms::Word
       end
     end
   end
+
+  def self.find(id)
+    @word = Word.find(id)
+    Forms::Word.new(
+      word: @word,
+      name: @word.name,
+      word_class: @word.word_class,
+      word_means: @word.word_means.map(&:description)
+    )
+  end
 end
