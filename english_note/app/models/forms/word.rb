@@ -35,8 +35,6 @@ class Forms::Word
       @word.errors.each do |attr, error|
         errors.add(attr, error)
       end
-      puts "hoge"
-      puts errors
       false
     end
   end
