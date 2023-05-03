@@ -8,6 +8,7 @@ function usage() {
 function start() {
     docker-compose up -d
     cd ./english_note/
+    rm tmp/pids/server.pid 
     bin/dev
 }
 
