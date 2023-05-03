@@ -6,7 +6,6 @@ class Forms::Word
 
   validates :name, presence: true
   validates :word_class, presence: true, inclusion: { in: Word::WORD_CLASS.keys.map(&:to_s) }
-  validates :study_event_id, presence: true
 
   def initialize(*args)
     super(*args)
@@ -14,20 +13,31 @@ class Forms::Word
   end
 
   def save
-    ActiveRecord::Base.transaction do
-      @word = Word.create!(
-        user: user,
-        study_event: study_event,
-        name: name,
-        word_class: word_class
-      )
+    return false unless valid?
 
-      word_means.each do |word_mean|
-        WordMean.create!(
-          word: word,
-          description: word_mean
+    begin
+      ActiveRecord::Base.transaction do
+        @word = Word.create!(
+          user: user,
+          study_event: study_event,
+          name: name,
+          word_class: word_class
         )
+
+        word_means.each do |word_mean|
+          WordMean.create!(
+            word: word,
+            description: word_mean
+          )
+        end
       end
+    rescue => e
+      @word.errors.each do |attr, error|
+        errors.add(attr, error)
+      end
+      puts "hoge"
+      puts errors
+      false
     end
   end
 

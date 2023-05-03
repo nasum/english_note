@@ -9,12 +9,12 @@ class WordsController < ApplicationController
 
   def create
     ActiveRecord::Base.transaction do
-      @form_word = Forms::Word.new(word_params)
-      @form_word.user = current_user
-      @form_word.study_event = StudyEvent.create(user: current_user, study_event_type: :word)
+      @word = Forms::Word.new(word_params)
+      @word.user = current_user
+      @word.study_event = StudyEvent.create(user: current_user, study_event_type: :word)
 
       respond_to do |format|
-        if @form_word.save
+        if @word.save
           format.html { redirect_to @form_word.word, notice: 'Word was successfully created.' }
           format.json { render :show, status: :created, location: @word }
         else
