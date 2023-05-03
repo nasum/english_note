@@ -26,6 +26,8 @@ class Word < ApplicationRecord
   belongs_to :user
   belongs_to :study_event
 
+  has_many :word_means, dependent: :destroy
+
   enum :word_class, WORD_CLASS
 
   validates :name, presence: true
