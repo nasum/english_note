@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  resources :journals
   get 'home' => 'home#index'
 
   resources :study_events, only: %i[index]
   resources :users
   resources :words
   resources :admin_user, only: %i[new create]
+  resources :journals
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => 'user_sessions#create'

@@ -17,9 +17,10 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class StudyEvent < ApplicationRecord
-  STUDY_EVNENT_TYPE = { word: 0 }
+  STUDY_EVNENT_TYPE = { word: 0, journal: 1 }
   belongs_to :user
   has_one :word
+  has_one :journal
 
   enum :study_event_type, STUDY_EVNENT_TYPE
 end

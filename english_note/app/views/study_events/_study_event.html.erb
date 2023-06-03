@@ -3,12 +3,21 @@
     <strong class="block font-medium mb-1">Name:</strong>
     <%= study_event.study_event_type %>
   </p>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Word:</strong>
-    <%= study_event.word.name %>
-  </p>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">WordClass:</strong>
-    <%= study_event.word.word_class %>
-  </p>
+  <% if study_event.word %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Word:</strong>
+      <%= study_event.word.name %>
+    </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">WordClass:</strong>
+      <%= study_event.word.word_class %>
+    </p>
+  <% end %>
+
+  <% if study_event.journal %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Word:</strong>
+      <%= study_event.journal.title %>
+    </p>
+  <% end %>
 </div>
